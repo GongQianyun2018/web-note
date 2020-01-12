@@ -26,4 +26,9 @@ IDEA：新建项目，static web->static web
 ```html
 HTML5: <!DOCTYPE HTML5>
 ```
-2. 
+2. HTML基础标签
+html、head、body
+3. HTML标题：h1-h6
+4. HTML段落：p
+5. html链接：a
+6. html图像：img
