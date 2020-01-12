@@ -35,5 +35,6 @@ Hyper Text Markup Language, 超文本标记语言，不是编程语言
  * alt+up/down：将此行向上/向下
  * ctrl+/（ctrl+fn+/）：注释
  * ctrl+space：提示
+ * ctrl+shift+f：代码整理
 
  
