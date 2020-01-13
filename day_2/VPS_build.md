@@ -59,6 +59,44 @@
 
 使用SwitchySharp插件，配置完成后可将系统代理设置为自动，URL设为空
 
+### 使用privoxy进行终端穿墙
+
+Shadowsocks是一个使用SOCK5协议的代理，只接受SOCKS5协议的流量，不接受HTTP或者HTTPS的流量，当Chrome上能穿墙的时候，是Proxy SwitchyOmega插件把http和https流量转换成SOCKS协议的流量，才实现了Shadowsocks的代理。而终端是没有这样的协议转换的，所以没办法直接使用Shadowsocks进行代理。需要一个协议转换器privoxy。
+
+* 安装：
+
+> sudo apt-get install privoxy
+
+* 配置
+
+/etc/privoxy/config中进行配置：listen-address localhost:8118，forward-socks5t / 127.0.0.1:1080 .（注意点号）
+
+* 重启
+
+sudo /etc/init.d/privoxy restart
+
+* 配置终端环境
+
+```
+$ export http_proxy="127.0.0.1:8118"
+$ export https_proxy="127.0.0.1:8118"
+```
+
+* 设为开机启动
+gnome-session-properties
+
+在/etc/profile的末尾下加如下两句：
+```
+$ export http_proxy="127.0.0.1:8118"
+$ export https_proxy="127.0.0.1:8118"
+```
+
+* 测试效果
+```
+wegt https://www.google.com
+```
+
+
 
 ## 服务端安装
 
